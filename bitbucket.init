@@ -14,13 +14,17 @@
 
 #Default settings
 SERVICE_NAME=bitbucket
-BITBUCKET_HOME=/opt/bitbucket
-BIN_DIR=${BITBUCKET_HOME}/bin
+BITBUCKET_HOME=/var/bitbucket
+BITBUCKET_ROOT=/opt/bitbucket
+BIN_DIR=${BITBUCKET_ROOT}/bin
 START_SCRIPT=start-bitbucket.sh
 STOP_SCRIPT=stop-bitbucket.sh
 PIDFILE=/var/run/bitbucket.pid
 
 [ -e /etc/sysconfig/${SERVICE_NAME} ] && . /etc/sysconfig/${SERVICE_NAME}
+
+export CATALINA_TMPDIR
+export BITBUCKET_HOME
 
 start() {
     $BIN_DIR/${START_SCRIPT}
