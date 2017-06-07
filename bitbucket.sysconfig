@@ -1,0 +1,3 @@
+#Where bitbucket should store it's data
+BITBUCKET_HOME=/var/bitbucket
+

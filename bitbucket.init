@@ -11,13 +11,16 @@
 
 # THIS SCRIPT HAS BEEN CONFIGURED TO RUN AS PART OF RUN LEVELS 2 TO 5
 # IF YOU WISH TO CHANGE THIS CONFIGURATION YOU WILL HAVE TO DO IT MANUALLY
+
+#Default settings
 SERVICE_NAME=bitbucket
 BITBUCKET_HOME=/opt/bitbucket
 BIN_DIR=${BITBUCKET_HOME}/bin
 START_SCRIPT=start-bitbucket.sh
 STOP_SCRIPT=stop-bitbucket.sh
-
 PIDFILE=/var/run/bitbucket.pid
+
+[ -e /etc/sysconfig/${SERVICE_NAME} ] && . /etc/sysconfig/${SERVICE_NAME}
 
 start() {
     $BIN_DIR/${START_SCRIPT}
